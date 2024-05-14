@@ -20,3 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/options', [CustomerInquiryController::class, 'GetInitialOptions']);
+
+Route::get('/inquiry', [CustomerInquiryController::class, 'getNewTenInquiry']);
+
+Route::post('/inquiry', [CustomerInquiryController::class, 'store']);
