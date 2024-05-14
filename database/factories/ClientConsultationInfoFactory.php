@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\IsBusinessRegistered;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ClientConsultationInfo>
@@ -27,7 +28,7 @@ class ClientConsultationInfoFactory extends Factory
             //到時從縣市model裡拿資料
             'company_location' => $this->faker->address,
             //到時從營業登記表裡model裡拿資料
-            'business_registration' => $this->faker->word,
+            'business_registration' => $this->faker->randomElement(IsBusinessRegistered::description()['status']),
             //到時從產業類別model裡拿資料
             'industry_category' => $this->faker->word,
             //到時從諮詢項目model裡拿資料
