@@ -49,7 +49,7 @@ class CustomerInquiryController  extends Controller
      * 取得最新十筆諮詢
      */
     #[Response(status:200, content:["massge" => "請求失敗"])]
-    #[Response(status:200, content:["company_name" => "大潤發有限股份公司", "contact_person" => "黃某某", "contact_email" => "abcd@exampel.com", "contact_phone" => 0987563527, "company_location" => "台北市", "business_registration" => true, "industry_category" => "零售業", "consultation_item" => "接洽", "number_of_users" => null, "notes" => "這是備註",  ], type: InquiryResourse::class)]
+    #[Response(status:200, content:["company_name" => "大潤發有限股份公司", "contact_person" => "黃某某", "contact_email" => "abcd@exampel.com", "contact_phone" => "0987563527", "company_location" => "台北市", "business_registration" => true, "industry_category" => "零售業", "consultation_item" => "接洽", "number_of_users" => null, "notes" => "這是備註",  ], type: InquiryResourse::class)]
     function getNewTenInquiry()
     {
         $newInquiry = $this->service->getLastTen();
