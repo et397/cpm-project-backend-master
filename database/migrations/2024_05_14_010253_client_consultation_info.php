@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("company_name", 255);
             $table->string("contact_person", 255);
             $table->string("contact_email", 255);
-            $table->integer("contact_phone");
+            $table->string("contact_phone", 255);
             $table->string("company_location", 255);
             $table->boolean("business_registration");
             $table->string("industry_category", 255);
