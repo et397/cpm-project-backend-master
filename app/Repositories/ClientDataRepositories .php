@@ -4,6 +4,7 @@
     // use App\Models\IndustryCategories;
     // use App\Models\InquiryItems;
     // use App\Models\IsBusinessRegistered;
+    use Knuckles\Scribe\Attributes\BodyParam;
     use Modules\Basic\Repositories\FunctionRepository;
     use Illuminate\Database\Eloquent\Model;
 
@@ -12,29 +13,35 @@
         {
             return ClientConsultationInfo::class;
         }
+        /**
+         * 資料按創建日期倒序，每頁10筆
+         */
+        #[BodyParam('page', description: 'Page number', example: 1)]
 
-        function getLastTen(int $page = 1, int $perPage = 10): array
+        function get(Closure $query, Illuminate\Database\Eloquent\Builder|null $builder = null, array $columns = ['*']): Illuminate\Database\Eloquent\Collection
         {
-            $info = $this->paginate(function ($builder) {
-                $builder->orderBy('created_at', 'desc');
-            }, $page, $perPage);
-
-            return $info->toArray();
+            $builder = $this->query($builder);
+            $query($builder);
+            return $builder->get($columns);
         }
 
-        function getLastOne()
+        function first(Closure $query, Illuminate\Database\Eloquent\Builder|null $builder = null, array $columns = ['*']): Model
         {
-            $info = $this->first(function ($builder) {
-                $builder->orderBy('created_at', 'desc');
-            });
+            $builder = $this->query($builder);
+            $query($builder);
+            return $builder->firstOrFail($columns);
+        }
 
-            return $info->toArray();
+        function paginate(Closure $query, int $page = 1, int $perPage = 15, Illuminate\Database\Eloquent\Builder|null $builder = null): Illuminate\Pagination\LengthAwarePaginator
+        {
+            $builder = $this->query($builder);
+            $query($builder);
+            return $builder->paginate($perPage, ['*'], 'page', $page);
         }
 
         function create(array $data): Model
         {
-            $info = $this->model->create($data);
-            return $info;
+            return $this->model->create($data);
         }
     }
        
