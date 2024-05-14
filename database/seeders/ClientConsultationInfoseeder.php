@@ -19,7 +19,7 @@ class ClientConsultationInfoseeder extends Seeder
             'company_name' => '長榮航空股份有限公司',
             'contact_person' => '黃某某',
             'contact_email' => 'example@gmail.com',
-            'contact_phone' => 0912345678,
+            'contact_phone' => '0912345678',
             'company_location' => '桃園市',
             'business_registration' => true,
             'industry_category' => '運輸物流業',
