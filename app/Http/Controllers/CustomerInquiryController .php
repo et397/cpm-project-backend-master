@@ -7,8 +7,8 @@ use App\Models\CityDirectory;
 use App\Models\IndustryCategories;
 use App\Models\InquiryItems;
 use App\Models\IsBusinessRegistered;
-use App\Http\Resources\CustomerInquiryResource;
-use App\Http\Resources\InquiryResourse;
+use App\Resources\CustomerInquiryResource;
+use App\Resources\InquiryResourse;
 use App\Http\Requests\InquiryRequest;
 
 use GuzzleHttp\Psr7\Response;
