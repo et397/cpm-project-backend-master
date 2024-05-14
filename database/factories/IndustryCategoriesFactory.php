@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\IndustryCategories;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\IndustryCategories>
@@ -18,6 +19,7 @@ class IndustryCategoriesFactory extends Factory
     {
         return [
             //
+            'category_name' => $this->faker->randomElement(IndustryCategories::description()['category_name']),
         ];
     }
 }
