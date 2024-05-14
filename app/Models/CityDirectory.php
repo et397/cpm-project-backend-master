@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CityDirectory extends Model
 {
-    protected $table = 'CityDirectory';
+    protected $table = 'city_directory';
 
     protected $fillable = [
         'city',

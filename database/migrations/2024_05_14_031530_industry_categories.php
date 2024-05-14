@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create("is_business_registered", function (Blueprint $table) {
+        Schema::create('industry_categories', function (Blueprint $table) {
             $table->id();
-            $table->boolean("status");
+            $table->string('category', 255);
             $table->timestamps();
         });
-       
     }
 
     /**
@@ -26,6 +25,6 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::dropIfExists("is_business_registered");
+        Schema::dropIfExists('industry_categories');
     }
 };

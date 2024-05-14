@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create("CityDirectory", function (Blueprint $table) {
+        Schema::create("city_directory", function (Blueprint $table) {
             $table->id();
             $table->string("city_name", 255);
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
     public function down(): void
     {
         //
-        Schema::dropIfExists("CityDirectory");
+        Schema::dropIfExists("city_directory");
     }
 };

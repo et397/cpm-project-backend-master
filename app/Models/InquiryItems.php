@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class InquiryItems extends Model
 {
-    protected $table = 'InquiryItems';
+    protected $table = 'inquiry_items';
     protected $fillable = [
         'item',
     ];

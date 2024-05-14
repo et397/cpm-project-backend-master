@@ -9,7 +9,7 @@ use League\CommonMark\Extension\DescriptionList\Node\Description;
 class IsBusinessRegistered extends Model
 {
 
-    protected $table = 'IsBusinessRegistered';
+    protected $table = 'is_business_registered';
 
     protected $fillable = [
         'status',
