@@ -13,5 +13,6 @@ class IndustryCategories extends Seeder
     public function run(): void
     {
         //
+        \App\Models\IndustryCategories::factory(10)->create();
     }
 }
