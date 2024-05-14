@@ -8,7 +8,7 @@ use App\Models\IndustryCategories;
 use App\Models\InquiryItems;
 use App\Models\IsBusinessRegistered;
 use App\Resources\CustomerInquiryResource;
-use App\Resources\InquiryResourse;
+use App\Resources\InquiryResource;
 use App\Http\Requests\InquiryRequest;
 
 use GuzzleHttp\Psr7\Response;
@@ -53,7 +53,7 @@ class CustomerInquiryController  extends Controller
     function getNewTenInquiry()
     {
         $newInquiry = $this->service->getLastTen();
-        return InquiryResourse::collection($newInquiry);
+        return InquiryResource::collection($newInquiry);
     }
 
     /**
@@ -73,7 +73,7 @@ class CustomerInquiryController  extends Controller
     {
         $data = $request->all();
         $newInquiry = $this->service->store($data);
-        return InquiryResourse::make($newInquiry);
+        return InquiryResource::make($newInquiry);
     }
 
 }

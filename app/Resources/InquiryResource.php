@@ -2,7 +2,7 @@
     namespace App\Resources;
     use Illuminate\Http\Resources\Json\JsonResource;
 
-    class InquiryResourse extends JsonResource
+    class InquiryResource extends JsonResource
     {
         public function toArray($Inquirys)
         {

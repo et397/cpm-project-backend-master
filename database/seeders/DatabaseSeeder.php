@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\IndustryCategories; // Add this line
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +18,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([
+            CityDirectory::class,
+            IndustryCategories::class,
+            IsBusinessRegistered::class,
+            ClientConsultationInfo::class,
+            InquiryItems::class
+        ]);
     }
 }
