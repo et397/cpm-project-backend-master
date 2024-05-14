@@ -6,6 +6,7 @@
     use App\Models\IndustryCategories;
     use App\Models\InquiryItems;
     use App\Models\IsBusinessRegistered;
+    use Modules\Basic\Services\FunctionService;
 
     class ClientService extends FunctionService
     {
@@ -20,13 +21,22 @@
             $this->repo = $repository;
         }
 
-        public function store(array $data): ClientConsultationInfo
+        /**
+         * Summary of store
+         * @param array $data
+         * @return ClientConsultationInfo
+         */
+        public function store($data)
         {
             $clientData = $this->repo->create($data);
 
             return $this->repo->findById($clientData->id);
         }
 
+        /**
+         * Summary of getInitialOptions
+         * @return array
+         */
         public function getLastOne()
         {
             $lastInfo = $this->repo->get(function($query){
