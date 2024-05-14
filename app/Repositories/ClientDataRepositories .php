@@ -4,7 +4,9 @@
     // use App\Models\IndustryCategories;
     // use App\Models\InquiryItems;
     // use App\Models\IsBusinessRegistered;
+    use Illuminate\Pagination\Paginator;
     use Knuckles\Scribe\Attributes\BodyParam;
+    use Knuckles\Scribe\Attributes\QueryParam;
     use Modules\Basic\Repositories\FunctionRepository;
     use Illuminate\Database\Eloquent\Model;
 
@@ -13,11 +15,7 @@
         {
             return ClientConsultationInfo::class;
         }
-        /**
-         * 資料按創建日期倒序，每頁10筆
-         */
-        #[BodyParam('page', description: 'Page number', example: 1)]
-
+       
         function get(Closure $query, Illuminate\Database\Eloquent\Builder|null $builder = null, array $columns = ['*']): Illuminate\Database\Eloquent\Collection
         {
             $builder = $this->query($builder);
@@ -43,5 +41,12 @@
         {
             return $this->model->create($data);
         }
+
+        function findById(int $id, array $columns = ['*'], array $relations = []): Model
+        {
+            $builder = $this->query(null);
+            return $builder->with($relations)->find($id, $columns);
+        }
+
     }
        
