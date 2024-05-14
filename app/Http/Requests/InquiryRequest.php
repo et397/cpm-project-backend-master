@@ -26,7 +26,7 @@ class InquiryRequest extends FormRequest
             'company_name' => ['nullable', 'string', 'max:255'],
             'contact_person' => ['required', 'string', 'max:255'],
             'contact_email' => ['required', 'email', 'string','max:255'],
-            'contact_phone' => ['required', 'integer',],
+            'contact_phone' => ['required', 'string',],
             'company_location' => ['required', 'string', 'max:255'],
             'business_registration' => ['required', 'boolean'],
             'industry_category' => ['required', 'string', 'max:255'],
