@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\IsBusinessRegistered;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\IsBusinessRegistered>
@@ -18,6 +19,7 @@ class IsBusinessRegisteredFactory extends Factory
     {
         return [
             //
+            "status" => $this->faker->randomElement(IsBusinessRegistered::description()['status']),
         ];
     }
 }

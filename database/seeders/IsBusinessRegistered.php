@@ -13,5 +13,6 @@ class IsBusinessRegistered extends Seeder
     public function run(): void
     {
         //
+        \App\Models\IsBusinessRegistered::factory(10)->create();
     }
 }
